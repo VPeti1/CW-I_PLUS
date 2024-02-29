@@ -23,6 +23,7 @@ text_box = tk.Text(root, height=1, width=40)
 text_box.pack()
 initial_text = "          Answer the question!"
 text_box.insert(tk.END, initial_text)
+root.destroy()
 
 # Ask the QUESTION
 ask_question()

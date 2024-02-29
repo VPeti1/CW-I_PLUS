@@ -50,6 +50,7 @@ def Exit():
     quit()
 
 def create_gui():
+    subprocess.call(['python', 'splash.py'])
     root = tk.Tk()
     root.title("CW-I PLUS")
 
