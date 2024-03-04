@@ -50,7 +50,7 @@ def Exit():
     quit()
 
 def create_gui():
-    subprocess.call(['python', 'chococ.py'])
+    #DISABLED BY DEFAULT        subprocess.call(['python', 'chococ.py'])
     subprocess.call(['python', 'splash.py'])
     root = tk.Tk()
     root.title("CW-I PLUS")
