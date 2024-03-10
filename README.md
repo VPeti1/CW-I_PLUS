@@ -1,5 +1,5 @@
-# CW-I Plus
-The GUI for CW-I
+# CW Plus
+The GUI for CW-I and OpenCW
 
 # How to install?
 ## Clone the repo
