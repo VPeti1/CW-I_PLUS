@@ -4,10 +4,10 @@ import subprocess
 
 def close_window():
     root.destroy()
-    subprocess.call(['python', 'main.py'])
+    
 
 root = tk.Tk()
-root.title("Installation Status")
+root.title("Install done")
 
 # Create a label with the message
 message_label = tk.Label(root, text="Install done")

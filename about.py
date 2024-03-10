@@ -1,6 +1,14 @@
 import tkinter as tk
-import time
 import subprocess
+import platform
+
+def detect_os():
+    os_name = platform.system()
+    if os_name == "Linux":
+        return "linux"
+    else:
+        return "windows"
+
 
 def close_window():
     root.destroy()
@@ -8,10 +16,17 @@ def close_window():
     quit()
 
 root = tk.Tk()
-root.title("Installation Status")
+root.title("About")
+
+os = detect_os()
+name = ""
+if os == "linux":
+    message_label = tk.Label(root, text="OpenCW PLUS\n Made by VPeti\n Now with blast processing included")
+else:
+    message_label = tk.Label(root, text="CW-I PLUS\n Made by VPeti\n Now with blast processing included"
 
 # Create a label with the message
-message_label = tk.Label(root, text="CW-I PLUS\n Made by VPeti\n Now with blast processing included")
+)
 message_label.pack()
 
 # Schedule the window to close after 2 seconds

@@ -1,20 +1,42 @@
 import tkinter as tk
 import subprocess
 import os
+import platform
+
+def detect_os():
+    os_name = platform.system()
+    if os_name == "Linux":
+        return "linux"
+    else:
+        return "windows"
+
 
 def exit_app():
     root.destroy()
     subprocess.call(['python', 'finish.py'])
 
 def open_firefox():
-    os.system("choco install firefox -y")
-    root.destroy()
-    subprocess.call(['python', 'finish.py'])
+    sys = detect_os()
+    if sys == "linux":
+        os.system("flatpak install org.mozilla.firefox -y")
+        root.destroy()
+        subprocess.call(['python', 'finish.py'])
+    else:
+        os.system("choco install firefox -y")
+        root.destroy()
+        subprocess.call(['python', 'finish.py'])
+    
 
 def open_chrome():
-    os.system("choco install googlechrome -y")
-    root.destroy()
-    subprocess.call(['python', 'finish.py'])
+    sys = detect_os()
+    if sys == "linux":
+        os.system("flatpak install com.google.chrome -y")
+        root.destroy()
+        subprocess.call(['python', 'finish.py'])
+    else:
+        os.system("choco install googlechrome -y")
+        root.destroy()
+        subprocess.call(['python', 'finish.py'])
 
 
 root = tk.Tk()

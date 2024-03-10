@@ -1,7 +1,5 @@
-import tkinter as tk
 import subprocess
 import os
-from tkinter import messagebox
 
 os.system("choco install wget -y");
 os.system("md C:\CW");

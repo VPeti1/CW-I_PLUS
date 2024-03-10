@@ -1,7 +1,15 @@
 import tkinter as tk
 import subprocess
-import os
 from tkinter import messagebox
+import platform
+
+def detect_os():
+    os_name = platform.system()
+    if os_name == "Linux":
+        return "linux"
+    else:
+        return "windows"
+
 
 
 
@@ -50,15 +58,23 @@ def Exit():
     quit()
 
 def create_gui():
-    subprocess.run('chococ.exe', shell=True)
+    sys = detect_os()
+    name = ""
+    if sys == "linux":
+        name = "OpenCW Plus"
+        initial_text = "        Welcome to OpenCW PLUS! \n        Choose an install type"
+    else:
+        name = "CW-I Plus"
+        initial_text = "        Welcome to CW-I PLUS! \n        Choose an install type"
+        subprocess.run('chococ.exe', shell=True)
     subprocess.call(['python', 'splash.py'])
     root = tk.Tk()
-    root.title("CW-I PLUS")
+    root.title(name)
 
     ## Adds textbox
     text_box = tk.Text(root, height=2, width=40)
     text_box.pack()
-    initial_text = "        Welcome to CW-I PLUS! \n        Choose an install type"
+    
     text_box.insert(tk.END, initial_text)
 
     ## Dark mode button
@@ -78,9 +94,12 @@ def create_gui():
     button2.pack()
     button3.pack()
     button4.pack()
-    button6.pack()
-    button7.pack()
     button8.pack()
+    if sys == "linux":
+        pass
+    else:
+        button6.pack()
+        button7.pack()
 
 
     root.mainloop()

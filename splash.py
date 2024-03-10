@@ -1,5 +1,4 @@
 import tkinter as tk
-import time
 
 def close_splash():
     root.destroy()
